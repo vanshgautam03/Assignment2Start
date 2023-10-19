@@ -39,28 +39,30 @@ function getBackgroundColor(inputNumber) {
   }
 }
 
+// Array of image paths
+const imageArray = ['img/img1.jpg', 'img/img2.jpg', 'img/img3.jpg', 'img/img4.jpg', 'img/img5.jpg'];
+
+
 // Function to generate options for select list
 function addList() {
-  const imageOptions = [
-    "../img/img1.jpg",
-    "../img/img2.jpg",
-    "../img/img3.jpg",
-    "../img/img4.jpg",
-    "../img/img5.jpg",
-  ];
-  for (let i = 0; i < imageOptions.length; i++) {
-    const option = document.createElement("option");
-    option.value = imageOptions[i]; // Set the value to the image filename
-    option.textContent = `Image ${i + 1}`; // Display user-friendly text
+  for (let i = 0; i < imageArray.length; i++) {
+    let option = document.createElement('option');
+    option.value = imageArray[i];
+    option.text = 'Image ' + (i + 1);
     imageSelect.appendChild(option);
-  }
+}
 }
 
-// Function to change image
+// Function to change the image based on selected option
 function changeImage() {
-  const selectedImage = option;
-  images.src = selectedImage; // Construct the image path
+  images.src = imageSelect.value;
 }
+
+// Immediately populate dropdown on page load
+addList();
+
+// Set default image
+images.src = imageArray[0];
 
 // Event listeners for buttons and select
 custColorButton.addEventListener("click", changeCustomColor);

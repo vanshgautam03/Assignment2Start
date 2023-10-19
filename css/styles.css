@@ -40,8 +40,8 @@ div {
     align-items: center;
     margin: 20px 0;
 }
-div.images{
-    height: 50vh;
-    width: auto;
-    overflow: auto;
+img{
+    width: 100px;
+    height: 100px;
+    margin: 10px;
 }
